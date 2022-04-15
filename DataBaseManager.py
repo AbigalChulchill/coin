@@ -2,9 +2,7 @@ import psycopg2
 from setting import DB_CONNECTION
 
 def create_conn():
-    conn_string = '''host='%(host)s', port=%(port)s,dbname='%(dbname)s',
-    user='%(user)s', password='%(password)s' '''%DB_CONNECTION
-    conn = psycopg2.connect(conn_string)
+    conn = psycopg2.connect(**DB_CONNECTION)
     return conn
 
 def run_update(sql):
@@ -23,3 +21,10 @@ def run_get(sql):
     cur.close()
     conn.close()
     return data
+
+
+if __name__ == "__main__":
+    print(0)
+    # conn_string =
+    # print(**DB_CONNECTION)
+    psycopg2.connect(**DB_CONNECTION)

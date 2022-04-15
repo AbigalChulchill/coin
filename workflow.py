@@ -12,7 +12,9 @@ def read_sql(sql_path):
 
 def sql_task(source_parms, task_parms):
     source = source_parms['source']
-    sql_path = os.join_path(root_dir, source, task_parms['sql_path'])
+    sql_path = os.path.join(root_dir, source, task_parms['sql_path'])
+    print(sql_path)
+    source_parms.update({'root_dir': root_dir})
     sql = read_sql(sql_path)%source_parms
     DataBaseManager.run_update(sql)
 
@@ -61,6 +63,7 @@ def launch_task(source, job):
 if __name__ == "__main__":
     print(0)
     # python_task_test('coinmarketcap', 'scrape/test.py')
-    launch_task('coinmarketcap', 'coinmarketcap_list')
+    # launch_task('coinmarketcap', 'coinmarketcap_list')
+    launch_task('coinmarketcap', 'coinmarketcap_detail')
 
 

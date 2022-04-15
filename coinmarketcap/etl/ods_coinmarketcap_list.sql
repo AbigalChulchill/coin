@@ -1,7 +1,8 @@
 create table coin.ods_coinmarketcap_list_%(ts)s (like coin.ods_coinmarketcap_list);
 
 copy coin.ods_coinmarketcap_list_%(ts)s from
-'%(root_dir)s\\%(source)s\\data_source\\%(job)_%(ts)s.csv'
+'%(root_dir)s\\%(source)s\\data_source\\%(job)s_%(ts)s.csv'
+delimiter ',' csv header;
 ;
 
 Delete From coin.ods_coinmarketcap_list

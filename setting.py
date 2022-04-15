@@ -2,8 +2,8 @@ root_dir='c:/workspace/coin'
 
 DB_CONNECTION = {
     'host': 'localhost',
-    'db_name': 'analysis',
-     'port': '5439',
+    'dbname': 'analysis',
+     'port': '5432',
     'user': 'postgres',
     'password': '123456'
 }
