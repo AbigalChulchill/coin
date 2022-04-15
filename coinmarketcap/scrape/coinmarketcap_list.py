@@ -3,6 +3,7 @@ import pandas as pd
 import datetime
 from setting import root_dir
 import os
+import time
 
 URL = 'https://api.coinmarketcap.com/data-api/v3/cryptocurrency/listing'
 
@@ -60,11 +61,14 @@ def scrape(func_parms,source_parms, task_parms):
         if start > totalcount or totalcount > 10000:
             break
     df = pd.DataFrame(data)
-    data_path = os.path.join(root_dir, source_parms['source'],'data_source/%(job)_list_%(ts)s.csv')
+    data_path = os.path.join(root_dir, source_parms['source'],'data_source/%(job)_%(ts)s.csv')
     df.to_csv(data_path, index=False)
 
 
 if __name__ == "__main__":
     print(0)
-    # scrape({{},})
+    # task_parms = {'type': 'python', 'py_path': 'scrape/coinmarketcap_list.py'}
+    # source_parms = {'source': 'coinmarketcap', 'job': 'coinmarketcap_list', 'ts': int(time.time())}
+    # scrape({}, source_parms, task_parms)
+    # print(requests.get(url=URL, params= params).json())
 

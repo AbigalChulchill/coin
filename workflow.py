@@ -35,7 +35,7 @@ TASK_TYPE_MAPPING = {
 
 
 
-def _read_workflow_def(source):
+def read_workflow_def(source):
     path = os.path.join(root_dir, source, 'workflow.yaml')
     return yaml.safe_load(open(path))
 
@@ -45,24 +45,22 @@ def _read_workflow_def(source):
 
 
 def launch_task(source, job):
-    task_def = _read_workflow_def(source)
+    task_def = read_workflow_def(source)
     task_lst = task_def.get(job)
     source_parms = {
         'source': source,
         'job': job,
         'ts': int(time.time())
     }
-    # for task_parms in task_lst:
-    #     task_run(source_parms, task_parms)
+    for task in task_lst:
+        print(task)
+        type = task.get('type')
+        TASK_TYPE_MAPPING[type](source_parms, task)
 
-
-
-# print(_read_workflow_def('ecryptocurrency'))
-
-# print( time.time())
 
 if __name__ == "__main__":
     print(0)
-    # python_task_test('ecryptocurrency', 'scrape/test.py')
+    # python_task_test('coinmarketcap', 'scrape/test.py')
+    launch_task('coinmarketcap', 'coinmarketcap_list')
 
 

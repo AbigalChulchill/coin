@@ -1,4 +1,4 @@
-root_dir='D:/workspace/coin'
+root_dir='c:/workspace/coin'
 
 DB_CONNECTION = {
     'host': 'localhost',

@@ -1,0 +1,5 @@
+coinmarketcap_list:
+    - type: python
+      py_path: scrape/coinmarketcap_list.py
+    - type: sql
+      sql_path: etl/ods_coinmarketcap_list_list.sql
