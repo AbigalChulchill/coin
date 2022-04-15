@@ -1,0 +1,7 @@
+ecryptocurrency:
+    - type: scrape
+      py_path: scrape/ecryptocurrency_list.py
+      data_path: data_source/ecryptocurrency_list-%(ts)s.csv
+    - type: sql
+      sql_path: etl/ecryptocurrency_list.sql
+      data_path: data_source/ecryptocurrency_list-%(ts)s.csv
